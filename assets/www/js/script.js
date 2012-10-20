@@ -4,7 +4,6 @@ function onLoad() {
 
 function onDeviceReady() {
 	document.addEventListener("menubutton",onMenuKeyDown,false);
-	alert("We're ready for fun");
 }
 
 function onMenuKeyDown() {
@@ -14,5 +13,16 @@ function onMenuKeyDown() {
 function teste() {
 	var phonePlatform = device.platform;
 	alert(phonePlatform);
+	cordova.exec(
+		function(value) {
+			alert("success");
+			alert(value);
+		},
+		function(error) {
+			alert("error");
+			alert(error);
+		},
+		"TestePlugin","teste",["teste"]
+	);
 }
 
